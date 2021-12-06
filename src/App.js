@@ -18,11 +18,12 @@ const Container = styled.div`
       position: fixed;
       font-size: 12px;
       width: 0%;
-      display: none;
+      display: flex;
+      visibility: hidden;
       flex-direction: column;
       align-items: center;
       height: 100vh;
-      transition: width 5000ms ease-in;
+      transition: all 200ms ease-out;
     }
 
     .closeIcon {
@@ -47,8 +48,8 @@ const Container = styled.div`
 
     &.showNavigation {
       @media screen and (max-width: 770px) {
-        display: flex;
         width: 50%;
+        visibility: visible;
       }
     }
   }
@@ -66,16 +67,16 @@ const Container = styled.div`
 
 const BackDrop = styled.div`
   position: fixed;
-  display: none;
+  visibility: hidden;
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 1;
-  transition: width 500ms ease-in;
-  
+
   &.showBackdrop {
     @media screen and (max-width: 770px) {
-      display: block;
+      transition: all 200ms ease-out;
+      visibility: visible;
     }
   }
 `;
