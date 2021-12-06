@@ -19,25 +19,12 @@ const Typography = styled.h1`
   }
 `;
 
-const BackDrop = styled.div`
-  position: fixed;
-  display: none;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.3);
-  z-index: 1;
-
-  &.showNavigation {
-    @media screen and (max-width: 770px) {
-      display: block;
-    }
-  }
-`;
 
 const SideNav = styled.div`
   display: flex;
   margin-bottom: 30px;
   text-align: center;
+  align-items: center;
 
   & > p {
     font-size: 1.2em;
@@ -70,7 +57,7 @@ const Sidebar = ({ show: { isMenuOpen, setIsMenuOpen } }) => {
 
   return (
     <>
-      <BackDrop className={isMenuOpen && "showNavigation"}></BackDrop>
+      
       <div className={`left ${isMenuOpen && "showNavigation"}`} ref={ref}>
         <img
           src={closeIcon}

@@ -7,7 +7,12 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: space-between;
     margin-bottom: 12px;
+
+    & > * {
+      flex: 50%;
+    }
   }
+
 
   @media screen and (max-width: 770px) {
     margin-bottom: 30px;
@@ -15,6 +20,12 @@ const Wrapper = styled.div`
 
   .title {
     font-size: 0.8em;
+  }
+
+  .price {
+    @media screen and (max-width: 770px) {
+      font-size: 1.2em;
+    }
   }
 
   .graph_container {
@@ -25,6 +36,7 @@ const Wrapper = styled.div`
 const Button = styled.button`
   width: 60px;
   padding: 5px 0;
+  margin-bottom: 9px;
   text-align: center;
   margin-right: 9px;
   border: none;
@@ -100,12 +112,12 @@ export default function Graph() {
               // Include a dollar sign in the ticks
               callback: function (value, index, ticks) {
                 switch (value) {
-                  case 0:        
+                  case 0:
                     return "0k ";
-                    
+
                   case 2:
                     return "1k";
-                  case 6: 
+                  case 6:
                     return "5k";
                   case 10:
                     return "10k";
@@ -159,7 +171,7 @@ export default function Graph() {
           </Button>
         </div>
       </div>
-      <div className='graph_container'>
+      <div className="graph_container">
         <canvas ref={graphRef}></canvas>
       </div>
     </Wrapper>

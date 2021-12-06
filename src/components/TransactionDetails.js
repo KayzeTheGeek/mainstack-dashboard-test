@@ -8,6 +8,10 @@ import starbucksIcon from "../images/starbucks.svg";
 const Wrapper = styled.div`
   margin-top: 20px;
 
+  @media screen and (max-width: 509px) {
+    font-size: 14px;
+  }
+
   .trans_header {
     display: flex;
     justify-content: space-between;
@@ -57,6 +61,17 @@ const Wrapper = styled.div`
   }
 
   .table_body {
+    .color_status {
+      width: 5px;
+      height: 5px;
+      margin-right: 10px;
+      border-radius: 50%;
+
+      @media screen and (max-width: 1170px) {
+        display: none;
+      }
+    }
+
     .table_data:nth-child(1),
     .table_data:nth-child(2) {
       display: flex;
@@ -65,6 +80,10 @@ const Wrapper = styled.div`
 
     .table_data:nth-child(1) {
       margin-left: 10px;
+
+      @media screen and (max-width: 1170px) {
+        margin-left: 0px;
+      }
     }
     .table_data:nth-child(2) {
       font-size: 0.8em;
@@ -108,19 +127,11 @@ const TableRow = ({
       <div className="trans_name">
         {" "}
         <h3>{transName}</h3>
-        <p className='date'>{date}</p>
+        <p className="date">{date}</p>
       </div>
     </div>
     <div className="table_data">
-      <div
-        style={{
-          width: 7,
-          height: 7,
-          marginRight: 10,
-          backgroundColor: color,
-          borderRadius: "50%",
-        }}
-      ></div>
+      <div className="color_status" style={{background: color}}></div>
       {category}
     </div>
     <div className="table_data">{cashback}</div>

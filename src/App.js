@@ -6,7 +6,6 @@ import { useState } from "react";
 const Container = styled.div`
   display: flex;
   overflow-y: auto;
-  border: 1px solid black;
 
   .left {
     flex: calc(100% / 12 * 2);
@@ -18,11 +17,12 @@ const Container = styled.div`
     @media screen and (max-width: 770px) {
       position: fixed;
       font-size: 12px;
-      width: 50%;
+      width: 0%;
       display: none;
       flex-direction: column;
       align-items: center;
       height: 100vh;
+      transition: width 5000ms ease-in;
     }
 
     .closeIcon {
@@ -44,11 +44,12 @@ const Container = styled.div`
       margin: auto;
       margin-bottom: 5px;
     }
-  }
 
-  .showNavigation {
-    @media screen and (max-width: 770px) {
-      display: flex;
+    &.showNavigation {
+      @media screen and (max-width: 770px) {
+        display: flex;
+        width: 50%;
+      }
     }
   }
 
@@ -63,11 +64,29 @@ const Container = styled.div`
   }
 `;
 
+const BackDrop = styled.div`
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  transition: width 500ms ease-in;
+  
+  &.showBackdrop {
+    @media screen and (max-width: 770px) {
+      display: block;
+    }
+  }
+`;
+
+
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <Container>
+      <BackDrop className={isMenuOpen && "showBackdrop"}></BackDrop>
       <Sidebar show={{ isMenuOpen, setIsMenuOpen }} />
       <Dashboard setIsMenuOpen={setIsMenuOpen} />
     </Container>

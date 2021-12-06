@@ -48,6 +48,11 @@ const DashshboardHeader = styled.div`
       margin-top: -10px;
       margin-right: 50px;
     }
+
+     @media screen and (max-width: 509px) {
+            margin-right: 0;
+    }
+
   }
   .header_left {
     font-size: 1.5em;
@@ -71,8 +76,8 @@ const DashshboardHeader = styled.div`
     position: relative;
     margin-right: 5px;
 
-    @media screen and (max-width: 770px) {
-      width: 70%;
+    @media screen and (max-width: 509px) {
+      display: none;
     }
 
     input {
@@ -104,16 +109,19 @@ const DashshboardHeader = styled.div`
     }
 
     .notification_label {
-      width: 13px;
-      height: 13px;
+      width: 15px;
+      height: 15px;
       border-radius: 50%;
       background-color: red;
       position: absolute;
-      top: -5px;
-      right: -5px;
+      top: -7px;
+      right: -4px;
       z-index: 10;
       font-size: 50%;
       text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       color: #fff;
     }
   }
